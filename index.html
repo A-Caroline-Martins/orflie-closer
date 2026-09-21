@@ -2,12 +2,23 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var saved = localStorage.getItem("orflie-theme");
+        var theme = saved === "light" || saved === "dark" ? saved : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Orflie Closer terceiriza a operação comercial da sua empresa: SDR, closer, atendimento e back office."
     />
-    <link rel="icon" href="assets/images/orflie-logo.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="assets/images/orflie-logo.svg"
+      type="image/svg+xml"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,7 +33,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Poppins:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <title>Orflie Closer</title>
@@ -36,13 +47,21 @@
         <div class="nav-menu collapse navbar-collapse" id="nav-menu">
           <ul>
             <li><a href="#banner">Home</a></li>
-            <li><a href="#services">Serviços</a></li>
+            <li><a href="#stats">Resultados</a></li>
             <li><a href="#how-it-works">Sobre</a></li>
-            <li><a href="#stats">Depoimentos</a></li>
-            <li><a href="#contact">CTA</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#contact">Contato</a></li>
           </ul>
         </div>
         <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            id="theme-toggle"
+            aria-label="Alternar tema claro/escuro"
+          >
+            <span class="material-symbols-outlined">dark_mode</span>
+          </button>
           <a class="btn-cta" href="#contact">Fale Conosco</a>
           <button
             class="nav-toggle navbar-toggler"
@@ -65,33 +84,68 @@
       <section class="banner" id="banner">
         <div class="banner-content">
           <div class="banner-main">
-            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+            <h1 class="showcase-title">
+              A operação comercial do Orflie Group.
+            </h1>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id illo
-              natus voluptas temporibus deleniti nihil?
+              A Orflie Closer terceiriza SDR, closer, atendimento e back office
+              com a governança de uma holding brasileira desde 2015.
             </p>
             <a class="banner-cta" href="#contact">Fale Conosco</a>
           </div>
           <div class="banner-features">
             <h2>Conheça nossas outras plataformas</h2>
             <ul>
+              
               <li>
-                <a href="#"
-                  ><img src="assets/images/logo-orflie-agc.svg" alt="" />Orflie
-                  AGC</a
-                >
+                <a
+                  href="https://orflie-outsourcing.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><img
+                    src="assets/images/brand/orflie-outsourcing-full.svg"
+                    alt="Orflie Outsourcing"
+                /></a>
               </li>
+
               <li>
-                <a href="#"
-                  ><img src="assets/images/logo-orflie-agc.svg" alt="" />Orflie
-                  AGC</a
-                >
+                <a
+                  href="https://orflie-group.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><img src="assets/images/brand/orflia-full.svg" alt="Orflia"
+                /></a>
               </li>
+
               <li>
-                <a href="#"
-                  ><img src="assets/images/logo-orflie-agc.svg" alt="" />Orflie
-                  AGC</a
-                >
+                <a
+                  href="https://orflie-group.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><img
+                    src="assets/images/brand/orflie-agc-full.svg"
+                    alt="Orflie AGC"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  href="https://orflie-group.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><img
+                    src="assets/images/brand/orflie-audit-full.svg"
+                    alt="Orflie Audit"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  href="https://orflie-group.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><img src="assets/images/callcenter.svg" alt="Orflie Atende"
+                /></a>
               </li>
             </ul>
           </div>
@@ -100,31 +154,114 @@
       <section class="stats" id="stats">
         <div class="stats-content row g-4">
           <div class="stats-text col-12 col-md-6">
-            <h2>
+            <span class="eyebrow">Resultados</span>
+            <h2 class="showcase-title">
               Entregamos toda solução que sua empresa precisa para faturar mais.
             </h2>
           </div>
           <div class="stats-cards col-12 col-md-6">
             <div class="stats-card">
-              <span class="material-symbols-outlined"> favorite </span>
-              <p class="stats-number">+1M</p>
-              <p>Leads impactados</p>
+              <span class="material-symbols-outlined"> trending_up </span>
+              <p class="stats-number">+45%</p>
+              <p>Retorno médio sobre investimento</p>
             </div>
             <div class="stats-card">
-              <span class="material-symbols-outlined"> favorite </span>
-              <p class="stats-number">+1M</p>
-              <p>Leads impactados</p>
+              <span class="material-symbols-outlined"> savings </span>
+              <p class="stats-number">85%</p>
+              <p>Redução de custo operacional</p>
             </div>
             <div class="stats-card">
-              <span class="material-symbols-outlined"> favorite </span>
-              <p class="stats-number">+1M</p>
-              <p>Leads impactados</p>
+              <span class="material-symbols-outlined"> verified </span>
+              <p class="stats-number">99%</p>
+              <p>Cumprimento de nível de serviço</p>
             </div>
             <div class="stats-card">
-              <span class="material-symbols-outlined"> favorite </span>
-              <p class="stats-number">+1M</p>
-              <p>Leads impactados</p>
+              <span class="material-symbols-outlined"> schedule </span>
+              <p class="stats-number">48h</p>
+              <p>Onboarding da sua operação</p>
             </div>
+          </div>
+        </div>
+      </section>
+      <!--Segmentos-->
+      <section class="segments" id="segments">
+        <div class="segments-content">
+          <div class="segments-text">
+            <span class="eyebrow">Para quem é</span>
+            <h2 class="showcase-title">
+              Atendemos empresas de diversos segmentos
+            </h2>
+            <p>
+              A estrutura do Orflie Group já opera times comerciais para
+              negócios destes setores — com processos adaptados para cada tipo
+              de venda.
+            </p>
+          </div>
+          <ul class="segments-list">
+            <li>
+              <span class="material-symbols-outlined">storefront</span>
+              Varejo e E-commerce
+            </li>
+            <li>
+              <span class="material-symbols-outlined">favorite</span>
+              Saúde e Bem-estar
+            </li>
+            <li>
+              <span class="material-symbols-outlined">school</span>
+              Educação
+            </li>
+            <li>
+              <span class="material-symbols-outlined">account_balance</span>
+              Financeiro e Seguros
+            </li>
+            <li>
+              <span class="material-symbols-outlined">local_shipping</span>
+              Logística
+            </li>
+            <li>
+              <span class="material-symbols-outlined">cell_tower</span>
+              Telecomunicações
+            </li>
+            <li>
+              <span class="material-symbols-outlined"
+                >precision_manufacturing</span
+              >
+              Indústria
+            </li>
+            <li>
+              <span class="material-symbols-outlined">computer</span>
+              Tecnologia e SaaS
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!--Sobre-->
+      <section class="how-it-works" id="how-it-works">
+        <div class="container-how-it-works row g-4">
+          <div class="how-it-works-text col-12 col-md-6">
+            <span class="eyebrow">Sobre</span>
+            <h2 class="showcase-title">Como funciona o serviço</h2>
+            <p>
+              A Orflie Performance em Vendas LTDA nasceu em Itapetininga (SP) em
+              2018 e atua oficialmente no segmento de marketing direto e
+              promoção de vendas, ajudando empresas a terceirizar suas operações
+              comerciais com processos estruturados.
+            </p>
+            <p>
+              Hoje, além da matriz em Itapetininga, contamos com uma unidade em
+              Sorocaba (SP), reunindo equipes de SDR, closer, atendimento e back
+              office comercial prontas para operar dentro do seu funil de vendas
+              — com a governança do Orflie Group por trás da operação.
+            </p>
+          </div>
+
+          <div class="how-it-works-card-image col-12 col-md-6">
+            <img
+              src="assets/images/magnific_quero-essa-mulher-neste-m_xS6igFgjfW.jpg"
+              alt="Atendente da Orflie sorrindo durante o atendimento"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -132,102 +269,209 @@
       <section class="services" id="services">
         <div class="services-content">
           <div class="service-text">
-            <h2 class="service-text-title">Serviços</h2>
+            <span class="eyebrow">Serviços</span>
+            <h2 class="showcase-title">
+              Terceirize a função que a sua empresa precisa
+            </h2>
             <p class="service-text-description">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id illo
-              natus voluptas temporibus deleniti nihil?
+              Times comerciais completos, terceirizados e prontos para operar
+              dentro do seu processo de vendas. Monte o time comercial ideal
+              escolhendo apenas as funções que sua empresa precisa, com a
+              governança do Orflie Group por trás da operação.
             </p>
           </div>
           <div class="service-cards">
             <div class="service-card">
-              <span class="material-symbols-outlined">support_agent</span>
-              <h3>Lorem, ipsum.</h3>
+              <span class="material-symbols-outlined">person_search</span>
+              <h3>SDR</h3>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id
-                illo
+                Prospecção e qualificação de leads para manter seu funil de
+                vendas sempre abastecido.
               </p>
-              <a href="#">Saiba Mais →</a>
             </div>
             <div class="service-card">
-              <span class="material-symbols-outlined">trending_up</span>
-              <h3>Lorem, ipsum.</h3>
+              <span class="material-symbols-outlined">support_agent</span>
+              <h3>Atendimento</h3>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id
-                illo
+                Atendimento ao cliente em todos os canais, do primeiro contato
+                ao pós-venda.
               </p>
-              <a href="#">Saiba Mais →</a>
             </div>
             <div class="service-card">
               <span class="material-symbols-outlined">handshake</span>
-              <h3>Lorem, ipsum.</h3>
+              <h3>Closer</h3>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id
-                illo
+                Negociação e fechamento de contratos para converter
+                oportunidades em receita.
               </p>
-              <a href="#">Saiba Mais →</a>
+            </div>
+            <div class="service-card">
+              <span class="material-symbols-outlined">trending_up</span>
+              <h3>Farmer</h3>
+              <p>
+                Expansão de contas e relacionamento contínuo para aumentar o
+                faturamento recorrente.
+              </p>
+            </div>
+            <div class="service-card">
+              <span class="material-symbols-outlined">assignment</span>
+              <h3>Back Office Comercial</h3>
+              <p>
+                Suporte operacional que mantém contratos, CRM e processos
+                comerciais organizados no dia a dia.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!--Como funciona-->
-      <section class="how-it-works" id="how-it-works">
-        <div class="container-how-it-works row g-4">
-          <div class="how-it-works-card-image col-12 col-md-6">
-            <img
-              src="assets/images/magnific_quero-essa-mulher-neste-m_xS6igFgjfW.png"
-              alt="Como Funciona"
-            />
-          </div>
-          <div class="how-it-works-text col-12 col-md-6">
-            <h2>Como funciona o serviço</h2>
+      <!--Processo-->
+      <section class="process" id="process">
+        <div class="process-content">
+          <div class="process-text">
+            <span class="eyebrow">Como começar</span>
+            <h2 class="showcase-title">Sua operação no ar em 4 passos</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-              nobis! Quia saepe reprehenderit, quo est animi aperiam modi vel
-              quos, sapiente nam vitae repellat similique assumenda voluptas.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-              nobis! Quia saepe reprehenderit, quo est animi aperiam modi vel
-              quos, sapiente nam vitae repellat similique assumenda voluptas.
+              Do diagnóstico ao primeiro relatório de performance, sem
+              burocracia para você começar a vender mais.
             </p>
           </div>
+          <ol class="process-list">
+            <li>
+              <span class="process-step">01</span>
+              <h3>Diagnóstico</h3>
+              <p>
+                Entendemos seu funil atual e quais funções fazem sentido
+                terceirizar primeiro.
+              </p>
+            </li>
+            <li>
+              <span class="process-step">02</span>
+              <h3>Montagem do time</h3>
+              <p>
+                Selecionamos SDRs, closers, atendimento ou back office treinados
+                para o seu produto.
+              </p>
+            </li>
+            <li>
+              <span class="process-step">03</span>
+              <h3>Onboarding em 48h</h3>
+              <p>
+                Sua operação entra no ar rápido, integrada ao seu CRM e
+                processos comerciais.
+              </p>
+            </li>
+            <li>
+              <span class="process-step">04</span>
+              <h3>Acompanhamento</h3>
+              <p>
+                Relatórios e SLA acompanhados de perto, com ajustes contínuos de
+                performance.
+              </p>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <!--Automatize-->
-      <section class="automatize" id="automatize">
-        <div class="automatize-content">
-          <div class="automatize-title">
-            <h2>Terceirize a função que a sua empresa precisa</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id illo
-              natus voluptas temporibus deleniti nihil?
-            </p>
+      <!--FAQ-->
+      <section class="faq" id="faq">
+        <div class="faq-content">
+          <div class="faq-text">
+            <span class="eyebrow">Dúvidas</span>
+            <h2 class="showcase-title">Perguntas frequentes</h2>
           </div>
-          <div class="automatize-list">
-            <ul>
-              <li>
-                <span class="material-symbols-outlined"> check </span>
-                <p>Back Office Comercial</p>
-              </li>
-              <li>
-                <span class="material-symbols-outlined"> check </span>
-                <p>SDR</p>
-              </li>
-              <li>
-                <span class="material-symbols-outlined"> check </span>
-                <p>Closer</p>
-              </li>
-              <li>
-                <span class="material-symbols-outlined"> check </span>
-                <p>Atendimento</p>
-              </li>
-              <li>
-                <span class="material-symbols-outlined"> check </span>
-                <p>Farmer</p>
-              </li>
-            </ul>
+          <div class="accordion" id="faq-accordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-1"
+                >
+                  Preciso contratar todas as funções ou posso escolher só uma?
+                </button>
+              </h3>
+              <div
+                id="faq-1"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faq-accordion"
+              >
+                <div class="accordion-body">
+                  Você escolhe só o que precisa — SDR, closer, atendimento,
+                  farmer ou back office comercial, isolados ou combinados, de
+                  acordo com a etapa do seu funil que mais precisa de reforço.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-2"
+                >
+                  Quanto tempo leva para a operação começar a rodar?
+                </button>
+              </h3>
+              <div
+                id="faq-2"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faq-accordion"
+              >
+                <div class="accordion-body">
+                  O onboarding padrão leva 48 horas a partir do alinhamento do
+                  escopo, já com a equipe integrada ao seu CRM e processos
+                  comerciais.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-3"
+                >
+                  Como fica a gestão do time terceirizado no dia a dia?
+                </button>
+              </h3>
+              <div
+                id="faq-3"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faq-accordion"
+              >
+                <div class="accordion-body">
+                  A operação é acompanhada com relatórios e indicadores de SLA,
+                  dentro da governança do Orflie Group, para que você tenha
+                  visibilidade sem precisar gerenciar o time diretamente.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-4"
+                >
+                  Meus dados e os dos meus clientes ficam seguros?
+                </button>
+              </h3>
+              <div
+                id="faq-4"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faq-accordion"
+              >
+                <div class="accordion-body">
+                  Sim. A operação segue as práticas de compliance com a LGPD
+                  adotadas em toda a estrutura do Orflie Group.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -236,10 +480,11 @@
       <section class="contact" id="contact">
         <div class="contact-content row g-4">
           <div class="contact-title col-12 col-md-6">
-            <h2>Contato</h2>
+            <span class="eyebrow">Fale com a gente</span>
+            <h2 class="showcase-title">Contato</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id illo
-              natus voluptas temporibus deleniti nihil?
+              Conte pra gente o desafio comercial da sua empresa e nossa equipe
+              mostra como a Orflie Closer pode te ajudar a vender mais.
             </p>
           </div>
           <div class="contact-form col-12 col-md-6">
@@ -275,7 +520,9 @@
                   required
                 ></textarea>
               </div>
-              <button type="submit">Enviar <span aria-hidden="true">→</span></button>
+              <button type="submit">
+                Enviar <span aria-hidden="true">→</span>
+              </button>
             </form>
           </div>
         </div>
@@ -287,7 +534,15 @@
           <a class="logo" href="#"
             ><img src="assets/images/orflie-logo.svg" alt="Orflie"
           /></a>
-          <p>Terceirização inteligente para o seu time comercial.</p>
+          <p>
+            Terceirização inteligente para o seu time comercial. Uma unidade do
+            <a
+              href="https://orflie-group.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Orflie Group</a
+            >, holding brasileira desde 2015.
+          </p>
           <!-- Redes Sociais -->
           <div class="footer-social">
             <a
@@ -318,10 +573,10 @@
           <h3>Navegação</h3>
           <ul>
             <li><a href="#banner">Home</a></li>
-            <li><a href="#services">Serviços</a></li>
+            <li><a href="#stats">Resultados</a></li>
             <li><a href="#how-it-works">Sobre</a></li>
-            <li><a href="#stats">Depoimentos</a></li>
-            <li><a href="#contact">CTA</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#contact">Contato</a></li>
           </ul>
         </div>
         <div class="footer-column col-6 col-md-4">
@@ -334,10 +589,18 @@
       </div>
       <!-- Copyright -->
       <div class="footer-bottom">
+        <p>
+          Orflie Performance em Vendas LTDA &middot; CNPJ 31.197.380/0001-20
+          &middot; Av. José Gomes de Camargo, 299, Jardim Marabá,
+          Itapetininga/SP
+        </p>
         <p>&copy; 2026 Orflie. Todos os direitos reservados.</p>
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme-toggle.js?v=1"></script>
+    <script src="assets/js/nav-menu.js?v=1"></script>
+    <script src="assets/js/contact-form.js?v=1"></script>
+    <script src="assets/js/main.js?v=6"></script>
   </body>
 </html>
