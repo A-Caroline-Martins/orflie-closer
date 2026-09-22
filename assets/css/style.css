@@ -264,7 +264,6 @@ ol {
   line-height: 1.2;
 }
 
-
 @media (max-width: 767.98px) {
   .showcase-title {
     font-size: 2.25rem;
@@ -502,7 +501,6 @@ nav .logo img {
   align-items: center;
 }
 
-
 .banner-features h2 {
   font-size: 0.875rem;
   font-weight: 500;
@@ -512,22 +510,28 @@ nav .logo img {
 .banner-features ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .banner-features ul li a {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
-  color: var(--white);
+  font-size: 0.9rem;
+  background: #83838377;
+  min-width: 6rem;
 }
 
 .banner-features ul li img {
-  height: 2.75rem;
+  height: 2rem;
   width: auto;
   object-fit: contain;
 }
+.banner-features ul li:nth-child(2) img {
+  height: 1.8rem;
+}
+
 
 /*Service*/
 .services {
@@ -1165,8 +1169,6 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
-
 
 @media (max-width: 767.98px) {
   .showcase-title {
