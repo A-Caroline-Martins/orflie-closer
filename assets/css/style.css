@@ -994,18 +994,25 @@ nav .logo img {
 .contact-form .form-group textarea {
   width: 100%;
   padding: 1rem 1.5rem;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 100px;
   background-color: var(--white);
   color: var(--ink);
   font-size: 1rem;
   font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s var(--ease);
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  border-color: #b3b3b3;
 }
 
 .contact-form .form-group textarea {
   border-radius: 20px;
   min-height: 7.5rem;
-  resize: vertical;
+
 }
 
 .contact-form button[type="submit"] {
@@ -1041,7 +1048,8 @@ footer {
   max-width: 75rem;
   margin: 0 auto;
   display: flex;
-
+  flex-wrap: wrap;
+  row-gap: 2rem;
   justify-content: space-between;
   padding-bottom: 1.875rem;
   border-bottom: 1px solid var(--border);
@@ -1163,6 +1171,17 @@ footer {
 
   .contact-content {
     padding: 2.5rem 1.875rem;
+  }
+
+  footer {
+    padding: 2.5rem 1.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-column {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
