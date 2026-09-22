@@ -1040,7 +1040,9 @@ footer {
   width: 100%;
   max-width: 75rem;
   margin: 0 auto;
-  align-items: start;
+  display: flex;
+
+  justify-content: space-between;
   padding-bottom: 1.875rem;
   border-bottom: 1px solid var(--border);
 }
