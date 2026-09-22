@@ -288,13 +288,29 @@ ol {
 }
 
 nav .logo {
-  width: 8.5rem;
+  width: 5rem;
   height: auto;
 }
 
 nav .logo img {
   width: 100%;
   height: auto;
+}
+
+.logo-dark {
+  display: block;
+}
+
+.logo-light {
+  display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+  display: none;
+}
+
+[data-theme="dark"] .logo-light {
+  display: block;
 }
 
 .nav-menu {
@@ -464,6 +480,19 @@ nav .logo img {
   color: rgba(255, 255, 255, 0.85);
 }
 
+.banner-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.banner-actions .banner-cta,
+.banner-actions .btn-cta {
+  padding: 0.75rem 1.5rem;
+  line-height: 1.2;
+}
+
 .banner-cta {
   align-self: flex-start;
   font-size: 0.9375rem;
@@ -531,7 +560,6 @@ nav .logo img {
 .banner-features ul li:nth-child(2) img {
   height: 1.8rem;
 }
-
 
 /*Service*/
 .services {
@@ -1012,7 +1040,6 @@ nav .logo img {
 .contact-form .form-group textarea {
   border-radius: 20px;
   min-height: 7.5rem;
-
 }
 
 .contact-form button[type="submit"] {
