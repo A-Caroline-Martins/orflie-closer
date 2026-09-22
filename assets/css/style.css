@@ -264,17 +264,6 @@ ol {
   line-height: 1.2;
 }
 
-@media (max-width: 767.98px) {
-  .showcase-title {
-    font-size: 2.25rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .showcase-title {
-    font-size: 1.875rem;
-  }
-}
 /*Menu de navegação*/
 
 .navbar {
@@ -403,40 +392,6 @@ nav .logo img {
   background-color: var(--text);
 }
 
-@media (max-width: 767.98px) {
-  .nav-toggle {
-    display: flex;
-  }
-
-  .nav-menu {
-    padding: 1.25rem;
-  }
-
-  .nav-menu ul {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .nav-menu ul li a {
-    display: block;
-    padding: 1rem 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .navbar {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    column-gap: 2rem;
-  }
-
-  .nav-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
 /*Banner*/
 .banner {
   width: 100%;
@@ -523,7 +478,8 @@ nav .logo img {
 }
 
 .banner-features a {
-  padding: 10px;
+  height: 3.25rem;
+  padding: 0 10px;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -557,9 +513,14 @@ nav .logo img {
   width: auto;
   object-fit: contain;
 }
-.banner-features ul li:nth-child(2) img {
-  height: 1.8rem;
+
+/* A arte da Orflia não reserva espaço pra legenda como as outras,
+   então na mesma altura ela renderiza com o traço bem mais grosso. */
+.banner-features ul li a.orflia img {
+  height: 1.4rem;
 }
+
+
 
 /*Service*/
 .services {
@@ -618,18 +579,6 @@ nav .logo img {
   border-radius: 15px;
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.3s var(--ease);
-}
-
-@media (min-width: 600px) {
-  .services .service-card {
-    flex: 0 1 calc((100% - 1.875rem) / 2);
-  }
-}
-
-@media (min-width: 992px) {
-  .services .service-card {
-    flex: 0 1 calc((100% - 2 * 1.875rem) / 3);
-  }
 }
 
 .services .service-card:hover {
@@ -750,12 +699,6 @@ nav .logo img {
   gap: 1.25rem;
 }
 
-@media (min-width: 600px) {
-  .segments-list {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 .segments-list li {
   display: flex;
   flex-direction: column;
@@ -871,18 +814,6 @@ nav .logo img {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.875rem;
-}
-
-@media (min-width: 700px) {
-  .process-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 992px) {
-  .process-list {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .process-list li {
@@ -1172,13 +1103,39 @@ footer {
 }
 
 /*Responsivo*/
-@media (min-width: 900px) {
-  .banner-content,
-  .services-content,
-  .stats-content,
-  .container-how-it-works {
-    max-width: 75rem;
-    margin: 0 auto;
+/* Breakpoints padrão do Bootstrap (já usado no projeto): 576 / 768 / 992.
+   Tudo ordenado do menor pro maior. Os dois primeiros blocos (< 576px e
+   576–767.98px) tratam faixas exclusivas do .showcase-title, pra não
+   depender da ordem das regras pra decidir qual tamanho de fonte vence. */
+
+@media (max-width: 575.98px) {
+  .showcase-title {
+    font-size: 1.875rem;
+  }
+
+  .stats .stats-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .showcase-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .services .service-card {
+    flex: 0 1 calc((100% - 1.875rem) / 2);
+  }
+
+  .segments-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1186,6 +1143,24 @@ footer {
   .banner-features {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    padding: 1.25rem;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-menu ul li a {
+    display: block;
+    padding: 1rem 0;
   }
 
   .services .service-text p {
@@ -1205,27 +1180,38 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
-  .footer-column {
-    flex: 0 0 100%;
-    max-width: 100%;
+@media (min-width: 768px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 2rem;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .process-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 560px) {
-  .stats .stats-cards {
-    grid-template-columns: 1fr;
+@media (min-width: 992px) {
+  .banner-content,
+  .services-content,
+  .stats-content,
+  .container-how-it-works {
+    max-width: 75rem;
+    margin: 0 auto;
   }
-}
 
-@media (max-width: 767.98px) {
-  .showcase-title {
-    font-size: 2.25rem;
+  .services .service-card {
+    flex: 0 1 calc((100% - 2 * 1.875rem) / 3);
   }
-}
 
-@media (max-width: 560px) {
-  .showcase-title {
-    font-size: 1.875rem;
+  .process-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
